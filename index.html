@@ -125,7 +125,7 @@
                     <label for="message">Message</label><br>
                     <textarea name="message" id="message" cols="30" rows="4" placeholder="Type your message here"></textarea>
                     <br>
-                    <input type="button" value="Send Massege" class="button" onclick="return validation()">
+                    <input type="button" value="Send Message" class="button" onclick="return validation()">
                 </form>
                 <p id="display_msg"></p>
             </div>
@@ -143,7 +143,7 @@
                 document.getElementById("display_msg").style= "color: red";
                 return false;
             } if (msg == ""){
-                document.getElementById("display_msg").innerHTML="Please type your Massage";
+                document.getElementById("display_msg").innerHTML="Please type your Message";
                 document.getElementById("display_msg").style= "color: red";
                 return false;  
             } else {
