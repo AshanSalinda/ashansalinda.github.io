@@ -10,12 +10,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap" rel="stylesheet">
     <link rel="icon" href="logo.png" type="image/x-icon">
     <title>Ashan Salinda</title>
+    
 </head>
 
 <body>
     <!--header-->
     <header>
-        <h2 class="logo">Ashan Salinda</h2>
+        <a style="text-decoration: none;" href="https://ashansalinda.me/"><div style="display: flex;">
+            <img src="logo.png" alt="Logo" width="40px" style="margin-left:10px; filter: brightness(0.6);">
+            <h3 class="logo">Ashan Salinda</h3>
+        </div></a>
         <div class="nav_buttons">
             <ul style="list-style-type: none;">
                 <li class="li_home"><a style="text-decoration: none;" href="#cover"><div class="div_home">Home</div></a></li>
@@ -44,7 +48,6 @@
 
     <!--cover-->  
     <div class="cover" id="cover">
-        <img src="logo.png" alt="Logo" width="60px" style="margin: 200px 0 0 50%;">
         <div class="intro">
             <table>
                 <tr>
@@ -70,8 +73,8 @@
         </table>   
     </div>
 
-        <!--Footer-->
-   <footer id="footer">
+    <!--Footer-->
+    <footer id="footer">
         <h1 class="contactme">Contact me</h1><br>
         <div style="display: flex;">
             <div style="width: 60%;">
@@ -118,8 +121,8 @@
 
             <div style="width: fit-content; padding-left: 30px;">
                 <form>
-                    <label for="email">Email address</label><br>
-                    <input type="email" name="email" id="email" placeholder="Type your email address" style="width: 255px;" required>
+                    <label for="email">Email Address</label><br>
+                    <input type="email" name="email" id="email" placeholder="Type your email address" style="width: 255px;" >
                      <br><br>
                     <label for="subject">Subject</label><br>
                     <input type="text" id="subject" placeholder="Type the Subject" style="width: 255px;">
@@ -132,20 +135,20 @@
                 <p id="display_msg"></p>
             </div>
         </div>
-        <p class="rights">2022 &#169; <a href="https://ashansalinda.me/">Ashan Salinda</a> , All Rights Reserved</p>
+        <p class="rights">2022 &#169; <a href="https://ashansalinda.github.io/official/">Ashan Salinda</a> , All Rights Reserved</p>
     </footer>
 
     <script>
         function validation(){
             var email = document.getElementById("email").value;
             var msg = document.getElementById("message").value;
-            
+    
             if (email == ""){
                 document.getElementById("display_msg").innerHTML="Your email Address must be filled out!";
                 document.getElementById("display_msg").style= "color: red";
                 return false;
             } if (msg == ""){
-                document.getElementById("display_msg").innerHTML="Please type your Message";
+                document.getElementById("display_msg").innerHTML="Please type your Massage";
                 document.getElementById("display_msg").style= "color: red";
                 return false;  
             } else {
@@ -161,6 +164,8 @@
         function soon(){
             alert("Comming soon...🤗 \nPlease Sorry it is not developed yet😔")
         }
+
     </script>
+    
 </body>
 </html>
