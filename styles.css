@@ -1,23 +1,26 @@
+    @import url(http://fonts.googleapis.com/css?family=Roboto:400,700,300);
+
     body {
         background-color: rgb(234, 239, 255);
         width: 100%;
         height: 100%;
         margin-bottom: -100%;
+        
     }
 
     /*navigation bar*/
     header {
         background-color: rgba(7, 26, 71, 0.95);
-        height: 50px;
+        height: 54px;
         width: 100%;
         position: fixed;
         display: flex;
         top: 0;
-        z-index: 1;
+        z-index: 11;
         border: 2px solid #041e3b;
         box-shadow: 5px -1px 20px rgb(54, 81, 163);
+        transition: top 0.5s;
     }
-
     .logo {
         color: rgb(31, 103, 130);
         padding: 7px 0 0 5px;
@@ -28,11 +31,32 @@
         width: fit-content;
         position: absolute;
         right: 0;
+        
     }
-
+    @media only screen and (max-width: 480px) {
+        .nav_buttons, .icons{display: none;}
+        .menu{display: inline !important;}
+    }
+    .menu{
+        position: absolute;
+        right: 0;
+        margin: 1px;
+        margin-right: 5px;
+        padding: 7px;
+        border: solid;
+        display: none;
+    }
+    .bar1{
+        background-color: aqua;
+        width: 25px;
+        height: 3px;
+        border-radius: 5px;
+        margin: 5px;
+    }
     .li_home,
-    .li_qualifications,
-    .li_gallery,
+    .li_about,
+    .li_projects,
+    .li_skills,
     .li_contacts {
         display: inline-block;
         position: relative;
@@ -41,19 +65,20 @@
     }
 
     .div_home,
-    .div_qualifications,
-    .div_gallery,
+    .div_about,
+    .div_projects,
+    .div_skills,
     .div_contacts {
-        color: white;
-        padding: 10px;
+        color: #9bdaff;
+        padding: 13px;
         margin: 0;
         border-radius: 7px;
         height: 100%;
     }
-
     .div_home:hover,
-    .div_qualifications:hover,
-    .div_gallery:hover,
+    .div_about:hover,
+    .div_projects:hover,
+    .div_skills:hover,
     .div_contacts:hover {
         background-color: #00142a;
     }
@@ -65,48 +90,16 @@
         z-index: 1;
         border-radius: 10px;
     }
-
-    .qul_tabs {
-        position: absolute;
-        display: none;
-        z-index: 1;
-        background-color: #0c305a;
-        box-shadow: -2px 1px 5px #458cdec2;
-
-    }
-
     .ibuttons {
         width: 45px;
         padding: 8px;
     }
-
-    .qul_buttons {
-        text-decoration: none;
-        color: white;
-        padding: 3px;
-        text-align: center;
-        border-radius: 10px;
-        padding: 12px 16px;
-    }
-
     .li_contacts:hover .icons {
         display: grid;
     }
-
-    .li_qualifications:hover .qul_tabs {
-        display: grid;
-    }
-
     .ibuttons:hover {
         border-radius: 8px;
         background-color: rgba(180, 180, 180, 0.65);
-    }
-
-    .qul_buttons:hover {
-        border-radius: 8px;
-        background-color: #001f43cb;
-        color: white;
-        font-weight: 400;
     }
 
 
@@ -126,9 +119,9 @@
     }
 
     .display_pic {
-        width: 200px;
+        width: 250px;
         border: 5px solid rgb(23, 40, 149);
-        border-radius: 100px;
+        border-radius: 150px;
     }
 
     .greeting {
@@ -139,13 +132,13 @@
     }
 
     .name {
-        line-height: 30px;
+        line-height: 40px;
         font-family: 'Source Serif Pro', serif;
-        font-weight: 550;
-        font-size: 60px;
+        font-weight: 600;
+        font-size: 70px;
         letter-spacing: 2px;
         color: rgb(25, 118, 152);
-        text-shadow: 1px 2px 1px rgb(89, 230, 243);
+        text-shadow: 1px 2px 1px rgb(15 207 255);
     }
 
     .status {
@@ -155,6 +148,7 @@
         letter-spacing: 2px;
         font-size: 25px;
         font-weight: 600;
+        line-height: 40px;
     }
 
     .fbuttons {
@@ -168,17 +162,17 @@
     .about {
         padding: 10% 20% 10% 20%;
     }
-
     .content {
         padding-left: 10%;
         text-align: justify;
     }
     
-    .aboutme {
+    .topic {
         text-align: center;
         font-weight: 800;
         color: #003e86;
         margin-bottom: 50px;
+        
     }
 
     .ashan_salinda {
@@ -191,17 +185,221 @@
     }
 
 
+    /*skills*/
+    .skills{
+        width: 100%;
+        display: grid;
+        margin: auto;    
+    }
+    .skills2{
+        padding-top: 2%;
+    }
+    .card{
+        background-color: #c1dfff;
+        border:1px solid #d1e7ff;
+        width: 350px;
+        height: fit-content;
+        border-radius: 20px;
+        align-items: center;
+        place-items: center;
+        padding: 20px;
+        margin: 3% 3% 0 3%;
+        box-shadow: 8px 8px 15px rgb(204, 204, 204);
+    }
+    .card-row{
+        display: flex;
+        width: fit-content;
+        margin: auto;
+    }
+            /*progress bar*/
+    .circle-wrap {
+      display: grid;
+      grid-template-columns: repeat(1, 160px);
+      grid-gap: 80px;
+      margin-top: 50px;
+      margin-bottom: 20px;
+      width: 150px;
+      height: 150px;
+      background: #b1cdef;
+      border-radius: 50%;
+    }
+
+    .mask,
+    .fill-1,
+    .fill-2,
+    .fill-3,
+    .fill-4,
+    .fill-5,
+    .fill-6 {
+      width: 150px;
+      height: 150px;
+      position: absolute;
+      border-radius: 50%;
+    }
+
+    .circle-wrap .circle .mask {
+      clip: rect(0px, 150px, 150px, 75px);
+    }
+
+    .circle-wrap .inside-circle {
+      width: 124px;
+      height: 124px;
+      border-radius: 50%;
+      background: #c1dfff;
+      line-height: 120px;
+      text-align: center;
+      margin-top: 13px;
+      margin-left: 13px;
+      color: #0a58ca;
+      position: absolute;
+      z-index: 7;
+      font-weight: 700;
+      font-size: 2em;
+    }
+
+    /* color animation */
+
+    .fill-1,
+    .fill-2,
+    .fill-3,
+    .fill-4,
+    .fill-5,
+    .fill-6 {
+      clip: rect(0px, 75px, 150px, 0px);
+      background-color: #4f93fa;
+    }
+
+    /* 1st bar */
+    .skills:hover .mask.full-1 {
+      animation: fill-1 ease-in-out 2s;
+      transform: rotate(155deg);
+    }
+    .skills:hover .circle .fill-1 {
+      animation: fill-1 ease-in-out 2s;
+      transform: rotate(155deg);
+    }
+    
+
+    @keyframes fill-1 {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(155deg);
+      }
+    }
+
+    /* 2nd bar */
+    .skills:hover .mask.full-2 {
+      animation: fill-2 ease-in-out 2s;
+      transform: rotate(125deg);
+    }
+    .skills:hover .circle .fill-2 {
+      animation: fill-2 ease-in-out 2s;
+      transform: rotate(125deg);
+    }
+
+    @keyframes fill-2 {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(125deg);
+      }
+    }
+
+    /* 3rd progress bar */
+    .skills:hover .mask.full-3 {
+      animation: fill-3 ease-in-out 2s;
+      transform: rotate(135deg);
+    }
+    .skills:hover .circle .fill-3 {
+      animation: fill-3 ease-in-out 2s;
+      transform: rotate(135deg);
+    }
+
+    @keyframes fill-3 {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(135deg);
+      }
+    }
+
+    /* 4th bar */
+    .skills2:hover .mask.full-4 {
+      animation: fill-4 ease-in-out 2s;
+      transform: rotate(115deg);
+    }
+    .skills2:hover .circle .fill-4 {
+      animation: fill-4 ease-in-out 2s;
+      transform: rotate(115deg);
+    }
+
+    @keyframes fill-4 {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(115deg);
+      }
+    }
+
+    /* 5th bar */
+    .skills2:hover.mask.full-5 {
+      animation: fill-5 ease-in-out 2s;
+      transform: rotate(180deg);
+    }
+    .skills2:hover .circle .fill-5 {
+      animation: fill-5 ease-in-out 2s;
+      transform: rotate(180deg);
+    }
+
+    @keyframes fill-5 {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(180deg);
+      }
+    }
+
+    /* 6th bar */
+    .skills2:hover .mask.full-6 {
+      animation: fill-6 ease-in-out 2s;
+      transform: rotate(120deg);
+    }
+    .skills2:hover .circle .fill-6 {
+      animation: fill-6 ease-in-out 2s;
+      transform: rotate(120deg);
+    }
+
+    @keyframes fill-6 {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(120deg);
+      }
+    }
+
     /*Footer*/
     footer {
         width: 100%;
         background-color: #090534;
         color: #a1a1a1;
-        height: fit-content;
         bottom: 0;
         margin:0;
     }
     .contactme{
-        padding: 20px 0 0 10px;
+        padding: 20px 0 0 50px;
         color:rgb(156, 156, 156); 
         font-weight: 700;
     }
@@ -224,7 +422,7 @@
 
     .button{
         background-color: rgb(212, 159, 0);
-        padding: 5px;
+        padding: 8px;
     }
 
     .button:hover{
@@ -239,4 +437,31 @@
         background-color: #05012c;
         padding: 5px;
         height: fit-content;
+    }
+
+
+
+/*Projects*/
+    .project_card{
+      background-color: #c1dfff;
+      width: 320px;
+      border-radius: 20px;
+      border: 5px solid #86c0ff;
+      padding: 20px;
+      margin: 10px;
+      box-shadow: 8px 8px 15px rgb(204, 204, 204);
+    }
+    .project_card1{
+      background-color: #c1dfff;
+      width: 320px;
+      height: 423px;
+      border-radius: 20px;
+      border: 5px solid #86c0ff;
+      padding: 20px;
+      margin: 10px;
+      box-shadow: 8px 8px 15px rgb(204, 204, 204);
+      opacity: 0.3;
+    }
+    .project_card:hover{
+      transform: scale(1.05)
     }
