@@ -1,171 +1,363 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <link rel="icon" href="logo.png" type="image/x-icon">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap" rel="stylesheet">
-    <title>Ashan Salinda</title>
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap" rel="stylesheet">
+  <link rel="icon" href="logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js"></script>
+  <title>Ashan Salinda</title>
+
+  <script type="module">
+
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+    import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBy0tTCdYdUDseIpAterbY506zTgnOjvJE",
+      authDomain: "personal-website-3b66b.firebaseapp.com",
+      databaseURL: "https://personal-website-3b66b-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "personal-website-3b66b",
+      storageBucket: "personal-website-3b66b.appspot.com",
+      messagingSenderId: "1098400612569",
+      appId: "1:1098400612569:web:b2ccda2be459072270bec8"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    document.getElementById("userForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      let userId = document.getElementById("name").value;
+      let email = document.getElementById("email").value;
+      let subject = document.getElementById("subject").value;
+      let message = document.getElementById("message").value;
+
+      set(ref(db, 'users/' + userId), {
+        Email: email,
+        Subject: subject,
+        Message: message
+      });
+
+      document.getElementById("display_msg").innerHTML = "Message Sent!";
+      document.getElementById("display_msg").style = "color: lime; padding: 10px; display: inline;";
+      document.getElementById("name").value = "";
+      document.getElementById("email").value = "";
+      document.getElementById("subject").value = "";
+      document.getElementById("message").value = "";
+    })
+  </script>
 </head>
 
 <body>
-    <!--header-->
-    <header>
-        <a style="text-decoration: none;" href="https://ashansalinda.me/"><div style="display: flex;">
-            <img src="logo.png" alt="Logo" width="40px" style="margin-left:10px; filter: brightness(0.6);">
-            <h3 class="logo">Ashan Salinda</h3>
-        </div></a>
-        <div class="nav_buttons">
-            <ul style="list-style-type: none;">
-                <li class="li_home"><a style="text-decoration: none;" href="#cover"><div class="div_home">Home</div></a></li>
-                <li class="li_qualifications"><div class="div_qualifications">Qualifications</div>
-                    <div class="qul_tabs">
-                        <a href="#" class="qul_buttons" onclick="soon()">Educational</a>
-                        <a href="#" class="qul_buttons" onclick="soon()">Other</a>
-                    </div>
-                </li>
-                <li class="li_gallery"><div class="div_gallery" onclick="soon()">Gallery</div></li>
-                <li class="li_contacts"><a style="text-decoration: none;" href="#footer"><div class="div_contacts">Contacts</div></a>
-                    <div class="icons">
-                        <a href="https://www.facebook.com/ashan.salinda.58"><img class="ibuttons" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/768px-Facebook_Logo_%282019%29.png" alt="Facebook"></a>
-                        <a href="https://www.linkedin.com/in/ashansalinda"><img class="ibuttons" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LinkedIn_icon_circle.svg/2048px-LinkedIn_icon_circle.svg.png" alt="LinkedIn"></a>
-                        <a href="https://t.me/Ashansalinda"><img class="ibuttons" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/240px-Telegram_logo.svg.png" alt="Telegram"></a>
-                        <a href="https://www.twitter.com/ashansalinda5"><img class="ibuttons" src="https://seeklogo.com/images/T/twitter-icon-circle-blue-logo-0902F48837-seeklogo.com.png" alt="Twitter"></a>
-                        <a href="https://api.whatsapp.com/send?phone=+94761868241"><img class="ibuttons" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/WhatsApp_icon.png/598px-WhatsApp_icon.png" alt="Whatsapp"></a>
-                        <a href="mailto:ashansalinda5@gmail.com"><img class="ibuttons" src="https://www.freeiconspng.com/uploads/gmail-logo-icon-4.png" alt="Gmail"></a>
-                        <a href="mailto:ashansalinda5@yahoo.com"><img class="ibuttons" src="https://icon-library.com/images/yahoo-icon-download/yahoo-icon-download-20.jpg" alt="yahoo"></a>
-                        <a href="mailto:ashansalinda5@outlook.com"><img class="ibuttons" src="https://www.freepnglogos.com/uploads/logo-outlook-png/microsoft-outlook-macos-icon-12.png" alt="outlook"></a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </header>
-
-    <!--cover-->  
-    <div class="cover" id="cover">
-        <div class="intro">
-            <table>
-                <tr>
-                    <td style="padding-right: 50px;">
-                        <h4 class="greeting">Hey There,</h4>
-                        <h1 class="name">I'm Ashan Salinda</h1>
-                        <h1 class="status">Web Developer</h1>
-                    </td>
-                    <td><img class="display_pic" src="./images/display_pic.jpeg" alt="display_pic"></td>
-                </tr>
-            </table>
-        </div>
+  <!--header-->
+  <header id="nav_bar">
+    <a style="text-decoration: none;" href="https://ashansalinda.me/">
+      <div class="div_logo" style="display: flex;">
+        <img src="./images/logo.png" alt="Logo" width="40px" style="margin-left:10px; filter: brightness(0.6);">
+        <h3 class="logo">Ashan Salinda</h3>
+      </div>
+    </a>
+    <div class="menu">
+      <div class="bar1"></div>
+      <div class="bar1"></div>
+      <div class="bar1"></div>
     </div>
-
-    <!--about-->
-    <div class="about">
-        <h1 class="aboutme">About Me...</h1>
-        <table>
-            <tr>
-                <td><img class="ashan_salinda" src="./images/ashan salinda.jpeg" alt="ashan_salinda"></td>
-                <td class="content"><p>I am Pemaththu Kankanamge Ashan Salinda. lives at Galle, Sri lanka. Studied at Kg/ Ashoka M. V. and Currently I am an Undergraduate of BSc.(Hons.) in Information Technology and Management at the Faculty of Information Technology, University of Moratuwa, Sri Lanka.</p></td>
-            </tr>
-        </table>   
+    <div class="nav_buttons">
+      <ul style="list-style-type: none;">
+        <li class="li_home"><a style="text-decoration: none;" href="#cover">
+            <div class="div_home">Home</div>
+          </a></li>
+        <li class="li_about"><a style="text-decoration: none;" href="#about">
+            <div class="div_about">About</div>
+          </a></li>
+        <li class="li_skills">
+          <a style="text-decoration: none;" href="#skills">
+            <div class="div_skills">Skills</div>
+          </a>
+        </li>
+        <li class="li_projects">
+          <a style="text-decoration: none;" href="projects.html">
+            <div class="div_projects">Projects</div>
+          </a>
+        </li>
+        <li class="li_contacts"><a style="text-decoration: none;" href="#footer">
+            <div class="div_contacts">Contacts</div>
+          </a>
+          <div class="icons">
+            <a href="https://www.facebook.com/ashan.salinda.58"><img class="ibuttons"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/768px-Facebook_Logo_%282019%29.png"
+                alt="Facebook"></a>
+            <a href="https://www.linkedin.com/in/ashansalinda"><img class="ibuttons"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LinkedIn_icon_circle.svg/2048px-LinkedIn_icon_circle.svg.png"
+                alt="LinkedIn"></a>
+            <a href="https://t.me/Ashansalinda"><img class="ibuttons"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/240px-Telegram_logo.svg.png"
+                alt="Telegram"></a>
+            <a href="https://www.twitter.com/ashansalinda5"><img class="ibuttons"
+                src="https://seeklogo.com/images/T/twitter-icon-circle-blue-logo-0902F48837-seeklogo.com.png"
+                alt="Twitter"></a>
+            <a href="https://api.whatsapp.com/send?phone=+94761868241"><img class="ibuttons"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/WhatsApp_icon.png/598px-WhatsApp_icon.png"
+                alt="Whatsapp"></a>
+            <a href="mailto:ashansalinda5@gmail.com"><img class="ibuttons"
+                src="https://www.freeiconspng.com/uploads/gmail-logo-icon-4.png" alt="Gmail"></a>
+            <a href="mailto:ashansalinda5@yahoo.com"><img class="ibuttons"
+                src="https://icon-library.com/images/yahoo-icon-download/yahoo-icon-download-20.jpg" alt="yahoo"></a>
+            <a href="mailto:ashansalinda5@outlook.com"><img class="ibuttons"
+                src="https://www.freepnglogos.com/uploads/logo-outlook-png/microsoft-outlook-macos-icon-12.png"
+                alt="outlook"></a>
+          </div>
+        </li>
+      </ul>
     </div>
+  </header>
 
-    <!--Footer-->
-    <footer id="footer">
-        <h1 class="contactme">Contact me</h1><br>
-        <div style="display: flex;">
-            <div style="width: 60%;">
-                <p>Contact me by the following ways :</p>
-                <table style="margin-left: 80px;">
-                    <tr>
-                        <td><a href="tel:0761868241"><img class="fbuttons" src="https://www.citypng.com/public/uploads/preview/-121610644163auvwfv1nkr.png" alt="phone"></a></td>
-                        <td><a class="links" href="tel:0761868241">076 18 68 241</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://api.whatsapp.com/send?phone=+94761868241"><img class="fbuttons" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/WhatsApp_icon.png/598px-WhatsApp_icon.png" alt="Whatsapp"></a></td>
-                        <td><a class="links" href="https://api.whatsapp.com/send?phone=+94761868241">076 18 68 241</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="mailto:ashansalinda5@gmail.com"><img class="fbuttons" src="https://www.freeiconspng.com/uploads/gmail-logo-icon-4.png" alt="Gmail"></a></td>
-                        <td><a class="links" href="mailto:ashansalinda5@gmail.com">ashansalinda5@gmail.com</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="mailto:ashansalinda5@yahoo.com"><img class="fbuttons" src="https://icon-library.com/images/yahoo-icon-download/yahoo-icon-download-20.jpg" alt="yahoo"></a></td>
-                        <td><a class="links" href="mailto:ashansalinda5@yahoo.com">ashansalinda5@yahoo.com</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="mailto:ashansalinda5@outlook.com"><img class="fbuttons" src="https://www.freepnglogos.com/uploads/logo-outlook-png/microsoft-outlook-macos-icon-12.png" alt="outlook"></a></td>
-                        <td><a class="links" href="mailto:ashansalinda5@outlook.com">ashansalinda5@outlook.com</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://www.facebook.com/ashan.salinda.58"><img class="fbuttons" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/768px-Facebook_Logo_%282019%29.png" alt="Facebook"></a></td>
-                        <td><a class="links" href="https://www.facebook.com/ashan.salinda.58">https://www.facebook.com/ashan.salinda.58</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://www.linkedin.com/in/ashansalinda"><img class="fbuttons" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LinkedIn_icon_circle.svg/2048px-LinkedIn_icon_circle.svg.png" alt="LinkedIn"></a></td>
-                        <td><a class="links" href="https://www.linkedin.com/in/ashansalinda">https://www.linkedin.com/in/ashansalinda</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://t.me/Ashansalinda"><img class="fbuttons" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/240px-Telegram_logo.svg.png" alt="Telegram"></a></td>
-                        <td><a class="links" href="https://t.me/Ashansalinda">https://t.me/Ashansalinda</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://www.twitter.com/ashansalinda5"><img class="fbuttons" src="https://seeklogo.com/images/T/twitter-icon-circle-blue-logo-0902F48837-seeklogo.com.png" alt="Twitter"></a></a></td>
-                        <td><a class="links" href="https://www.twitter.com/ashansalinda5">https://www.twitter.com/ashansalinda5</a></td>
-                    </tr>
-                </table><br><br><br>
-            </div>
+  <!--cover-->
+  <div class="cover" id="cover">
+    <div class="intro">
+      <table>
+        <tr>
+          <td style="padding-right: 50px;">
+            <h4 class="greeting">Hey There,</h4>
+            <h1 class="name">I'm Ashan Salinda</h1>
+            <h1 class="status">Web Developer</h1>
+          </td>
+          <td><img class="display_pic" src="./images/display_pic.jpeg" alt="display_pic"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
 
-            <div style="width: fit-content; padding-left: 30px;">
-                <form>
-                    <label for="email">Email Address</label><br>
-                    <input type="email" name="email" id="email" placeholder="Type your email address" style="width: 255px;" >
-                     <br><br>
-                    <label for="subject">Subject</label><br>
-                    <input type="text" id="subject" placeholder="Type the Subject" style="width: 255px;">
-                    <br><br>
-                    <label for="message">Message</label><br>
-                    <textarea name="message" id="message" cols="30" rows="4" placeholder="Type your message here"></textarea>
-                    <br>
-                    <input type="button" value="Send Message" class="button" onclick="return validation()">
-                </form>
-                <p id="display_msg"></p>
+  <!--about-->
+  <div class="about" id="about">
+    <table>
+      <tr>
+        <td colspan="2"><h1 class="topic">About Me...</h1></td>
+      </tr>
+      <tr>
+        <td><img class="ashan_salinda" src="./images/ashan salinda.jpeg" alt="ashan_salinda"></td>
+        <td class="content">
+          <p>I am a front-end web developer. I can provide clean code and pixel perfect design. I also make the website more & more interactive with web animations.I can provide clean code and pixel perfect design. I also make the website more & more interactive with web animations.A responsive design makes your website accessible to all users, regardless of their device.</p>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!--skills-->
+  <div class="skills" onmouseenter="percentage1()">
+  <h1 class="topic" id="skills" style="padding-top: 45px; width: 100%;">Skills</h1>
+    <div class ="card-row">
+      <!--card 1-->
+      <div class="card">
+        <img width="80px" src="./images/html.png" alt="html">
+        <h2 style="margin: 10px; font-weight: 700;">HTML</h2>
+        <div class="circle-wrap">
+          <div class="circle">
+            <div class="mask full-1">
+              <div class="fill-1"></div>
             </div>
+            <div class="mask half">
+              <div class="fill-1"></div>
+            </div>
+            <div class="inside-circle"> 85% </div>
+          </div>
         </div>
-        <p class="rights">2022 &#169; <a href="https://ashansalinda.github.io/official/">Ashan Salinda</a> , All Rights Reserved</p>
-    </footer>
+      </div>
 
-    <script>
-        function validation(){
-            var email = document.getElementById("email").value;
-            var msg = document.getElementById("message").value;
-    
-            if (email == ""){
-                document.getElementById("display_msg").innerHTML="Your email Address must be filled out!";
-                document.getElementById("display_msg").style= "color: red";
-                return false;
-            } if (msg == ""){
-                document.getElementById("display_msg").innerHTML="Please type your Massage";
-                document.getElementById("display_msg").style= "color: red";
-                return false;  
-            } else {
-                document.getElementById("display_msg").innerHTML="Message Sent!"; 
-                document.getElementById("display_msg").style= "color: lime";
-                document.getElementById("email").value="" ;
-                document.getElementById("subject").value="" ;
-                document.getElementById("message").value="" ;
-                return false;
-            }
-        }
+      <!--card 2-->
+      <div class="card">
+        <img width="80px" src="./images/css.png" alt="css">
+        <h2 style="margin: 10px; font-weight: 700;">CSS</h2>
+        <div class="circle-wrap">
+          <div class="circle">
+            <div class="mask full-2">
+              <div class="fill-2"></div>
+            </div>
+            <div class="mask half">
+              <div class="fill-2"></div>
+            </div>
+            <div class="inside-circle"> 70% </div>
+          </div>
+        </div>
+      </div>
 
-        function soon(){
-            alert("Comming soon...🤗 \nPlease Sorry it is not developed yet😔")
-        }
+      <!--card 3-->
+      <div class="card">
+        <img width="80px" src="./images/javascript.png" alt="javasript">
+        <h2 style="margin: 10px; font-weight: 700;">JavaScript</h2>
+        <div class="circle-wrap">
+          <div class="circle">
+            <div class="mask full-3">
+              <div class="fill-3"></div>
+            </div>
+            <div class="mask half">
+              <div class="fill-3"></div>
+            </div>
+            <div class="inside-circle"> 75% </div>
+          </div>
+        </div>
+      </div><br><br>
+    </div>
+  </div>
 
-    </script>
-    
+  <div class="skills2"  onmouseenter="percentage2()">
+    <div class="card-row" style="margin-bottom: 50px;">
+      <!--card 4-->
+      <div class="card">
+        <img width="80px" src="./images/c.png" alt="c">
+        <h2 style="margin: 10px; font-weight: 700;">C</h2>
+        <div class="circle-wrap">
+          <div class="circle">
+            <div class="mask full-4">
+              <div class="fill-4"></div>
+            </div>
+            <div class="mask half">
+              <div class="fill-4"></div>
+            </div>
+            <div class="inside-circle"> 60% </div>
+          </div>
+        </div>
+      </div>
+
+      <!--card 5-->
+      <div class="card">
+        <img width="80px" src="./images/mysql.png" alt="mysql">
+        <h2 style="margin: 10px; font-weight: 700;">MySQL</h2>
+        <div class="circle-wrap">
+          <div class="circle">
+            <div class="mask full-5">
+              <div class="fill-5"></div>
+            </div>
+            <div class="mask half">
+              <div class="fill-5"></div>
+            </div>
+            <div class="inside-circle"> 50% </div>
+          </div>
+        </div>
+      </div>
+
+      <!--card 6-->
+      <div class="card">
+        <img width="80px" src="./images/python.png" alt="python">
+        <h2 style="margin: 10px; font-weight: 700;">Python</h2>
+        <div class="circle-wrap">
+          <div class="circle">
+            <div class="mask full-6">
+              <div class="fill-6"></div>
+            </div>
+            <div class="mask half">
+              <div class="fill-6"></div>
+            </div>
+            <div class="inside-circle"> 65% </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!--Footer-->
+  <footer id="footer">
+    <h1 class="contactme">Contact me</h1><br>
+    <div style="display: flex;">
+      <div style="width: 55%; margin-left: 50px;">
+        <p>Contact me by the following ways :</p>
+        <table style="margin-left: 30px;">
+          <tr>
+            <td><a href="tel:0761868241"><img class="fbuttons"
+                  src="https://www.citypng.com/public/uploads/preview/-121610644163auvwfv1nkr.png" alt="phone"></a></td>
+            <td><a class="links" href="tel:0761868241">076 18 68 241</a></td>
+          </tr>
+          <tr>
+            <td><a href="https://api.whatsapp.com/send?phone=+94761868241"><img class="fbuttons"
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/WhatsApp_icon.png/598px-WhatsApp_icon.png"
+                  alt="Whatsapp"></a></td>
+            <td><a class="links" href="https://api.whatsapp.com/send?phone=+94761868241">076 18 68 241</a>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="mailto:ashansalinda5@gmail.com"><img class="fbuttons"
+                  src="https://www.freeiconspng.com/uploads/gmail-logo-icon-4.png" alt="Gmail"></a>
+            </td>
+            <td><a class="links" href="mailto:ashansalinda5@gmail.com">ashansalinda5@gmail.com</a></td>
+          </tr>
+          <tr>
+            <td><a href="mailto:ashansalinda5@yahoo.com"><img class="fbuttons"
+                  src="https://icon-library.com/images/yahoo-icon-download/yahoo-icon-download-20.jpg" alt="yahoo"></a>
+            </td>
+            <td><a class="links" href="mailto:ashansalinda5@yahoo.com">ashansalinda5@yahoo.com</a></td>
+          </tr>
+          <tr>
+            <td><a href="mailto:ashansalinda5@outlook.com"><img class="fbuttons"
+                  src="https://www.freepnglogos.com/uploads/logo-outlook-png/microsoft-outlook-macos-icon-12.png"
+                  alt="outlook"></a></td>
+            <td><a class="links" href="mailto:ashansalinda5@outlook.com">ashansalinda5@outlook.com</a></td>
+          </tr>
+          <tr>
+            <td><a href="https://www.facebook.com/ashan.salinda.58"><img class="fbuttons"
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/768px-Facebook_Logo_%282019%29.png"
+                  alt="Facebook"></a></td>
+            <td><a class="links"
+                href="https://www.facebook.com/ashan.salinda.58">https://www.facebook.com/ashan.salinda.58</a>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="https://www.linkedin.com/in/ashansalinda"><img class="fbuttons"
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LinkedIn_icon_circle.svg/2048px-LinkedIn_icon_circle.svg.png"
+                  alt="LinkedIn"></a></td>
+            <td><a class="links"
+                href="https://www.linkedin.com/in/ashansalinda">https://www.linkedin.com/in/ashansalinda</a>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="https://t.me/Ashansalinda"><img class="fbuttons"
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/240px-Telegram_logo.svg.png"
+                  alt="Telegram"></a></td>
+            <td><a class="links" href="https://t.me/Ashansalinda">https://t.me/Ashansalinda</a></td>
+          </tr>
+          <tr>
+            <td><a href="https://www.twitter.com/ashansalinda5"><img class="fbuttons"
+                  src="https://seeklogo.com/images/T/twitter-icon-circle-blue-logo-0902F48837-seeklogo.com.png"
+                  alt="Twitter"></a></a></td>
+            <td><a class="links" href="https://www.twitter.com/ashansalinda5">https://www.twitter.com/ashansalinda5</a>
+            </td>
+          </tr>
+        </table><br><br><br>
+      </div>
+
+      <div style="width: fit-content; padding-left: 30px; margin-bottom: 20px;">
+        <form method="post" id="userForm">
+          <label for="name">Name</label><br>
+          <input type="text" name="name" id="name" placeholder="Type your Name" style="width: 350px;" required>
+          <br><br>
+          <label for="email">Email Address</label><br>
+          <input type="email" name="email" id="email" placeholder="Type your email address" style="width: 350px;">
+          <br><br>
+          <label for="subject">Subject</label><br>
+          <input type="text" id="subject" placeholder="Type the Subject" style="width: 350px;">
+          <br><br>
+          <label for="message">Message</label><br>
+          <textarea name="message" id="message" cols="43" rows="3" placeholder="Type your message here"
+            required></textarea>
+          <br>
+          <input type="submit" value="Send Message" class="button">
+          <p id="display_msg"></p>
+        </form>
+      </div>
+    </div>
+    <p class="rights">2022 &#169; <a href="https://ashansalinda.github.io/official/">Ashan Salinda</a> , All Rights
+      Reserved</p>
+  </footer>
+
 </body>
+
 </html>
