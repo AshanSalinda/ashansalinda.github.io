@@ -36,6 +36,7 @@
     @media only screen and (max-width: 480px) {
         .nav_buttons, .icons{display: none;}
         .menu{display: inline !important;}
+        .card-row{display: block;}
     }
     .menu{
         position: absolute;
