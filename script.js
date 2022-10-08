@@ -85,4 +85,3 @@ function percentage2(){
       }, 27);
     }
 }
-
