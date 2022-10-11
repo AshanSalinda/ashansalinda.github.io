@@ -17,7 +17,7 @@
       .view{display: block !important;}
       .card_div{display: block !important;}
       .contactme{text-align: center; padding-left: 0 !important;}
-      .mode_button{right: 37px !important; margin: 12px !important;}
+      .mode_div{right: 37px !important; margin: 12px !important;}
       .project_card, .project_card1{transform: scale(0.8);}
       .project_card:hover{
         transform: scale(0.9) !important;
@@ -33,9 +33,8 @@
         margin-top: 50px;
         border-radius: 8px;
         position: absolute;
-        right: -200px;}
-      .main_menu:hover .nav_buttons {
-        transform: translateX(-195px);
+        right: -160px;
+        transform: translateX(0);
         transition: 650ms;}
       .tabs_div {
         width: 90px;
@@ -59,13 +58,15 @@
       padding: 0;
     }
 
-
     /*mode changer*/
     body.dark {
       background-color: #080528 !important;
     }
-    body.dark .check_label{
+    body.dark .mode_button{
       background-color: rgb(11, 5, 104);
+    }
+    body.dark .ball {
+      transform: translateX(24px);
     }
     body.dark .ashan_salinda{
       box-shadow: -8px 10px 15px rgb(19 65 86);
@@ -97,12 +98,8 @@
     body.dark .fill-6 {
       background-color: #1f7cfc;
     }
-    .checkbox {
-      opacity: 0;
-      position: absolute;
-    }
     
-    .check_label {
+    .mode_button {
       background-color: #4c91ff;
       border-radius: 50px;
       cursor: pointer;
@@ -114,8 +111,7 @@
       height: 26px;
       width: 50px;
     }
-    
-    .check_label .ball {
+    .ball {
       background-color: #fff;
       border-radius: 50%;
       position: absolute;
@@ -126,20 +122,7 @@
       transform: translateX(0px);
       transition: transform 0.2s linear;
     }
-    
-    .checkbox:checked + .check_label .ball {
-      transform: translateX(24px);
-    }
-    
-    
-    .fa-moon {
-      color: #f1c40f;
-    }
-    
-    .fa-sun {
-      color: #f39c12;
-    }
-    .mode_button{
+    .mode_div{
       margin: 13px;
       position: absolute;
       right: 390px;
@@ -184,11 +167,21 @@
       position: absolute;
       right: 5px;
       margin-top: 10px;
+      transform: rotate(0deg);
+      transition: 650ms;
     }
-    .menu:hover{
+    .main_menu.move .nav_buttons{
+      transform: translateX(-155px);
+      transition: 650ms;
+    }
+    .main_menu.move .menu{
       transform: rotate(90deg);
       transition: 650ms;
     }
+    /*.menu:hover{
+      transform: rotate(90deg);
+      transition: 650ms;
+    }*/
     .bar1{
         background-color: rgb(0, 215, 215);
         width: 24px;
