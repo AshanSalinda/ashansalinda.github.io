@@ -85,7 +85,21 @@ function percentage2(){
       }, 27);
     }
 }
+let darkMode = window.matchMedia("(prefers-color-scheme:dark)");
+darkMode.addEventListener("change", (e) => setColorScheme(e.matches));
+
+function setColorScheme(isDark) {
+    if (isDark) {
+      document.body.classList.add("dark");
+    } else{
+      document.body.classList.remove("dark");
+    }
+}
 
 function mode(){
   document.body.classList.toggle("dark");
+}
+
+function menuShow (){
+  document.getElementById("main_menu").classList.toggle("move");
 }
