@@ -16,11 +16,12 @@
   <link rel="icon" href="./images/logo.png" type="image/x-icon">
   <link rel="stylesheet" href="styles.css">
   <title>Ashan Salinda</title>
-  <script src="script.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script type="text/javascript" src="script.js"></script>
   <script type="module">
       
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
-    import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+    import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
 
     const firebaseConfig = {
       apiKey: "AIzaSyBy0tTCdYdUDseIpAterbY506zTgnOjvJE",
@@ -55,22 +56,24 @@
       document.getElementById("subject").value = "";
       document.getElementById("message").value = "";
     })
+
+    let cover_height = document.getElementById("cover").scrollHeight;
+    document.getElementById("hiddn").style.height = cover_height +"px";
   </script>
 </head>
 
 <body>
+  <!--loader-->
+  <img class="loader" src="images/logo.png" alt="loading">
+  <h4 class="loader_text">Please wait...</h4>
+  <div class="loader_bg"></div>
+
   <!--header-->
   <header id="nav_bar">
       <div class="div_logo">
         <a href="https://ashansalinda.me/">
           <img src="./images/logo.png" alt="Logo" class="logo_img"></a>
           <h3 class="logo_name">Ashan Salinda</h3>
-      </div>
-
-      <div class="mode_div">
-        <div class="mode_button" onclick="mode()">
-            <div class="ball"></div>
-        </div>
       </div>
 
       <div class="main_menu" id="main_menu">
@@ -124,11 +127,11 @@
                     src="https://www.freepnglogos.com/uploads/logo-outlook-png/microsoft-outlook-macos-icon-12.png"
                     alt="outlook"></a>
                 <a href="https://github.com/AshanSalinda"><img class="ibuttons"
-                  src="./images/github.png"
-                  alt="GitHub"></a>
+                    src="./images/github.png"
+                    alt="GitHub"></a>
                 <a href="https://www.hackerrank.com/ashansalinda5"><img class="ibuttons"
-                  src="https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/160_Hackerrank_logo_logos-512.png"
-                  alt="Hackerrant"></a>
+                    src="https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/160_Hackerrank_logo_logos-512.png"
+                    alt="Hackerrant"></a>
               </div>
             </li>
           </ul>
@@ -149,6 +152,7 @@
       </div>
     </div>
   </div>
+  <div id="hiddn"></div>
 
   <!--about-->
   <div class="about" id="about">
@@ -319,7 +323,7 @@
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/768px-Facebook_Logo_%282019%29.png"
                   alt="Facebook"></a></td>
             <td><a class="links"
-                href="https://www.facebook.com/ashan.salinda.58">https://www.facebook.com/ashan.salinda.58</a>
+                href="https://www.facebook.com/ashan.salinda.58">www.facebook.com/ashan.salinda.58</a>
             </td>
           </tr>
           <tr>
@@ -327,34 +331,34 @@
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LinkedIn_icon_circle.svg/2048px-LinkedIn_icon_circle.svg.png"
                   alt="LinkedIn"></a></td>
             <td><a class="links"
-                href="https://www.linkedin.com/in/ashansalinda">https://www.linkedin.com/in/ashansalinda</a>
+                href="https://www.linkedin.com/in/ashansalinda">www.linkedin.com/in/ashansalinda</a>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="https://www.twitter.com/ashansalinda5"><img class="fbuttons"
+                  src="https://seeklogo.com/images/T/twitter-icon-circle-blue-logo-0902F48837-seeklogo.com.png"
+                  alt="Twitter"></a></td>
+            <td><a class="links" href="https://www.twitter.com/ashansalinda5">www.twitter.com/ashansalinda5</a>
             </td>
           </tr>
           <tr>
             <td><a href="https://t.me/Ashansalinda"><img class="fbuttons"
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/240px-Telegram_logo.svg.png"
                   alt="Telegram"></a></td>
-            <td><a class="links" href="https://t.me/Ashansalinda">https://t.me/Ashansalinda</a></td>
-          </tr>
-          <tr>
-            <td><a href="https://www.twitter.com/ashansalinda5"><img class="fbuttons"
-                  src="https://seeklogo.com/images/T/twitter-icon-circle-blue-logo-0902F48837-seeklogo.com.png"
-                  alt="Twitter"></a></a></td>
-            <td><a class="links" href="https://www.twitter.com/ashansalinda5">https://www.twitter.com/ashansalinda5</a>
-            </td>
+            <td><a class="links" href="https://t.me/Ashansalinda">t.me/Ashansalinda</a></td>
           </tr>
           <tr>
             <td><a href="https://github.com/AshanSalinda"><img class="fbuttons"
                   src="./images/github.png"
                   alt="GitHub"></a></td>
-            <td><a class="links" href="https://github.com/AshanSalinda">https://github.com/AshanSalinda</a>
+            <td><a class="links" href="https://github.com/AshanSalinda">github.com/AshanSalinda</a>
             </td>
           </tr>
           <tr>
             <td><a href="https://www.hackerrank.com/ashansalinda5"><img class="fbuttons"
                   src="https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/160_Hackerrank_logo_logos-512.png"
                   alt="Hackerrant"></a></td>
-            <td><a class="links" href="https://www.hackerrank.com/ashansalinda5">https://www.hackerrank.com/ashansalinda5</a>
+            <td><a class="links" href="https://www.hackerrank.com/ashansalinda5">www.hackerrank.com/ashansalinda5</a>
             </td>
           </tr>
         </table><br><br><br>
@@ -376,10 +380,11 @@
             required></textarea>
           <br>
           <input type="submit" value="Send Message" class="button"><br><br><br>
+          
         </form>
       </div>
     </div>
-    <p class="rights">2022 &#169; <a href="https://ashansalinda.me/">Ashan Salinda</a> , All Rights
+    <p class="rights">2022 &#169; <a href="https://ashansalinda.github.io/official/">Ashan Salinda</a> , All Rights
       Reserved</p>
   </footer>
 </body>

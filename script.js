@@ -96,10 +96,10 @@ function setColorScheme(isDark) {
     }
 }
 
-function mode(){
-  document.body.classList.toggle("dark");
-}
-
 function menuShow (){
   document.getElementById("main_menu").classList.toggle("move");
 }
+$(window).load(function () {
+  $(".loader, .loader_bg").fadeOut("slow");
+  $(".loader_text").fadeOut("fast");
+});
