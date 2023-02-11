@@ -19,7 +19,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <script type="text/javascript" src="script.js"></script>
   <script type="module">
-      
+
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
     import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
 
@@ -58,85 +58,75 @@
     })
 
     let cover_height = document.getElementById("cover").scrollHeight;
-    document.getElementById("hiddn").style.height = cover_height +"px";
+    document.getElementById("hiddn").style.height = cover_height + "px";
   </script>
 </head>
 
 <body>
   <!--loader-->
   <img class="loader" src="images/logo.png" alt="loading">
-  <h4 class="loader_text">Please wait...</h4>
+  <h4 class="loader_text">Loading...</h4>
   <div class="loader_bg"></div>
 
   <!--header-->
   <header id="nav_bar">
-      <div class="div_logo">
-        <a href="https://ashansalinda.me/">
-          <img src="./images/logo.png" alt="Logo" class="logo_img"></a>
-          <h3 class="logo_name">Ashan Salinda</h3>
-      </div>
+    <div class="div_logo">
+      <a href="https://ashansalinda.me/">
+        <img src="./images/logo.png" alt="Logo" class="logo_img"></a>
+      <h3 class="logo_name">Ashan Salinda</h3>
+    </div>
 
-      <div class="main_menu" id="main_menu">
-        <div class="menu" onclick="menuShow ()">
-          <div class="bar1"></div>
-          <div class="bar1"></div>
-          <div class="bar1"></div>
-        </div>
-        <div class="nav_buttons">
-          <ul>
-            <li class="li_tabs"><a href="#cover">
-                <div class="tabs_div">Home</div>
-              </a></li>
-            <li class="li_tabs"><a href="#about">
-                <div class="tabs_div">About</div>
-              </a></li>
-            <li class="li_tabs">
-              <a href="#skills">
-                <div class="tabs_div">Skills</div>
-              </a>
-            </li>
-            <li class="li_tabs">
-              <a href="./projects.html">
-                <div class="tabs_div">Projects</div>
-              </a>
-            </li>
-            <li class="li_contacts"><a href="#footer">
-                <div class="tabs_div">Contacts</div>
-              </a>
-              <div class="icons">
-                <a href="https://www.facebook.com/ashan.salinda.58"><img class="ibuttons"
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/768px-Facebook_Logo_%282019%29.png"
-                    alt="Facebook"></a>
-                <a href="https://www.linkedin.com/in/ashansalinda"><img class="ibuttons"
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LinkedIn_icon_circle.svg/2048px-LinkedIn_icon_circle.svg.png"
-                    alt="LinkedIn"></a>
-                <a href="https://t.me/Ashansalinda"><img class="ibuttons"
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/240px-Telegram_logo.svg.png"
-                    alt="Telegram"></a>
-                <a href="https://www.twitter.com/ashansalinda5"><img class="ibuttons"
-                    src="https://seeklogo.com/images/T/twitter-icon-circle-blue-logo-0902F48837-seeklogo.com.png"
-                    alt="Twitter"></a>
-                <a href="https://api.whatsapp.com/send?phone=+94761868241"><img class="ibuttons"
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/WhatsApp_icon.png/598px-WhatsApp_icon.png"
-                    alt="Whatsapp"></a>
-                <a href="mailto:ashansalinda5@gmail.com"><img class="ibuttons"
-                    src="https://www.freeiconspng.com/uploads/gmail-logo-icon-4.png" alt="Gmail"></a>
-                <a href="mailto:ashansalinda5@yahoo.com"><img class="ibuttons"
-                    src="https://icon-library.com/images/yahoo-icon-download/yahoo-icon-download-20.jpg" alt="yahoo"></a>
-                <a href="mailto:ashansalinda5@outlook.com"><img class="ibuttons"
-                    src="https://www.freepnglogos.com/uploads/logo-outlook-png/microsoft-outlook-macos-icon-12.png"
-                    alt="outlook"></a>
-                <a href="https://github.com/AshanSalinda"><img class="ibuttons"
-                    src="./images/github.png"
-                    alt="GitHub"></a>
-                <a href="https://www.hackerrank.com/ashansalinda5"><img class="ibuttons"
-                    src="https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/160_Hackerrank_logo_logos-512.png"
-                    alt="Hackerrant"></a>
-              </div>
-            </li>
-          </ul>
-        </div>
+    <div class="main_menu" id="main_menu">
+      <div class="menu" onclick="menuShow ()">
+        <div class="bar1"></div>
+        <div class="bar1"></div>
+        <div class="bar1"></div>
       </div>
+      <div class="nav_buttons">
+        <ul>
+          <li class="li_tabs"><a href="#cover">
+              <div class="tabs_div">Home</div>
+            </a></li>
+          <li class="li_tabs"><a href="#about">
+              <div class="tabs_div">About</div>
+            </a></li>
+          <li class="li_tabs">
+            <a href="#skills">
+              <div class="tabs_div">Skills</div>
+            </a>
+          </li>
+          <li class="li_tabs">
+            <a href="#projects">
+              <div class="tabs_div">Projects</div>
+            </a>
+          </li>
+          <li class="li_contacts"><a href="#footer">
+              <div class="tabs_div">Contacts</div>
+            </a>
+            <div class="icons">
+              <a href="https://www.facebook.com/ashan.salinda.58" target="_blank"><img class="ibuttons" src="./images/facebook.png"
+                  alt="Facebook"></a>
+              <a href="https://www.linkedin.com/in/ashansalinda" target="_blank"><img class="ibuttons" src="./images/linkedin.png"
+                  alt="LinkedIn"></a>
+              <a href="https://t.me/Ashansalinda" target="_blank"><img class="ibuttons" src="./images/telegram.png" 
+                  alt="Telegram"></a>
+              <a href="https://www.twitter.com/ashansalinda5" target="_blank"><img class="ibuttons" src="./images/twitter.png"
+                  alt="Twitter"></a>
+              <a href="https://api.whatsapp.com/send?phone=+94761868241" target="_blank"><img class="ibuttons"
+                  src="./images/whatsapp.png" alt="Whatsapp"></a>
+              <a href="mailto:ashansalinda5@gmail.com"><img class="ibuttons" src="./images/gmail.png" alt="Gmail"></a>
+              <a href="mailto:ashansalinda5@yahoo.com"><img class="ibuttons" src="./images/yahoo.png" alt="yahoo"></a>
+              <a href="mailto:ashansalinda5@outlook.com"><img class="ibuttons" src="./images/outlook.png"
+                  alt="outlook"></a>
+              <a href="https://github.com/AshanSalinda" target="_blank"><img class="ibuttons" src="./images/github.png"
+                  alt="GitHub"></a>
+              <a href="https://www.hackerrank.com/ashansalinda5" target="_blank"><img class="ibuttons" src="./images/hackerrank.png"
+                  alt="Hackerrant"></a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
   </header>
 
   <!--cover-->
@@ -159,19 +149,20 @@
     <h1 class="topic">About Me...</h1>
     <div class="about_div">
       <img class="ashan_salinda" src="./images/ashan salinda.jpeg" alt="ashan_salinda">
-      <p class="content">I am a Web developer. I can provide clean code and pixel perfect design. I also make the website more & more interactive with web animations.</p>
+      <p class="content">I am a Web developer. I can provide clean code and pixel perfect design. I also make the
+        website more & more interactive with web animations.</p>
     </div>
   </div>
- 
+
 
   <!--skills-->
-  <div class="skills" onmouseenter="percentage1()">
   <h1 class="topic" id="skills">Skills</h1>
-    <div class ="card-row">
-      <h4 class="view">View Graph</h4>
+  <div class="skills" onmouseenter="percentage1()">
+
+    <div class="card-row">
       <!--card 1-->
       <div class="card">
-        <img src="./images/html.png" alt="html"  width="80px">
+        <img src="./images/html.png" alt="html" width="80px">
         <h2 class="card_header">HTML</h2>
         <div class="circle-wrap">
           <div class="circle">
@@ -218,13 +209,10 @@
             <div class="inside-circle"> 75% </div>
           </div>
         </div>
-      </div><br><br>
+      </div>
     </div>
-  </div>
 
-  <div class="skills2"  onmouseenter="percentage2()">
-    <div class="card-row" style="margin-bottom: 50px;">
-      <h4 class="view">View Graph</h4>
+    <div class="card-row" onmouseenter="percentage2()">
       <!--card 4-->
       <div class="card">
         <img width="80px" src="./images/c.png" alt="c">
@@ -276,8 +264,40 @@
         </div>
       </div>
     </div>
+
   </div>
+
+
+  <!--Projects-->
+  <h1 class="topic" id="projects">Projects</h1>
+  <div class="project_div">
+    <a href="https://ashansalinda.github.io/traveling-website/" target="_blank" style=" text-decoration: none; color: rgb(2, 30, 62);">
+      <div class="project_card">
+        <div class="project_01_img">
+          <img  src="./images/project.png" alt="project_01" width="250px" height="180px" style="border-radius: 10px;">
+        </div>
+        <h3 style="text-align: center; margin-top: 50px;">Beauty Of Cylon</h3><br>
+        <p style="text-align: center; line-height: 20px;">A Developed Website for a Traveling Company</p>
+      </div>
+    </a>
+
+    <div class="project_card1">
+      <div style="margin: auto; width: fit-content; padding: 10px; opacity: 0.3;">
+        <img src="./images/web-developing.png" alt="project_01" width="230px" height="200px"
+          style="border-radius: 10px;">
+      </div>
+      <h3 style="text-align: center;">XXXX XXXX</h3>
+    </div>
+
+    <div class="project_card1">
+      <div style="margin: auto; width: fit-content; padding: 10px; opacity: 0.3;">
+        <img src="./images/web-developing.png" alt="project_01" width="250px" height="200px"
+          style="border-radius: 10px;">
+      </div>
+      <h3 style="text-align: center;">XXXX XXXX</h3>
+    </div>
   </div>
+
 
   <!--Footer-->
   <footer id="footer">
@@ -286,84 +306,82 @@
       <div class="links_div">
         <table>
           <tr>
-            <td colspan="2"><p>Contact me by the following ways :</p></td>
-          </tr>
-          <tr>
-            <td><a href="tel:0761868241"><img class="fbuttons"
-                  src="https://www.citypng.com/public/uploads/preview/-121610644163auvwfv1nkr.png" alt="phone"></a></td>
-            <td><a class="links" href="tel:0761868241">076 18 68 241</a></td>
-          </tr>
-          <tr>
-            <td><a href="https://api.whatsapp.com/send?phone=+94761868241"><img class="fbuttons"
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/WhatsApp_icon.png/598px-WhatsApp_icon.png"
-                  alt="Whatsapp"></a></td>
-            <td><a class="links" href="https://api.whatsapp.com/send?phone=+94761868241">076 18 68 241</a>
+            <td colspan="2">
+              <p>Contact me by the following ways :</p>
             </td>
           </tr>
           <tr>
-            <td><a href="mailto:ashansalinda5@gmail.com"><img class="fbuttons"
-                  src="https://www.freeiconspng.com/uploads/gmail-logo-icon-4.png" alt="Gmail"></a>
+            <td><a href="tel:0761868241"><img class="fbuttons" src="./images/phone.png" alt="phone"></a></td>
+            <td><a class="links" href="tel:0761868241">076 18 68 241</a></td>
+          </tr>
+
+          <tr>
+            <td><a href="https://api.whatsapp.com/send?phone=+94761868241" target="_blank"><img class="fbuttons"
+                  src="./images/whatsapp.png" alt="Whatsapp"></a></td>
+            <td><a class="links" href="https://api.whatsapp.com/send?phone=+94761868241" target="_blank">076 18 68 241</a>
+            </td>
+          </tr>
+
+          <tr>
+            <td><a href="mailto:ashansalinda5@gmail.com"><img class="fbuttons" src="./images/gmail.png" alt="Gmail"></a>
             </td>
             <td><a class="links" href="mailto:ashansalinda5@gmail.com">ashansalinda5@gmail.com</a></td>
           </tr>
+
           <tr>
-            <td><a href="mailto:ashansalinda5@yahoo.com"><img class="fbuttons"
-                  src="https://icon-library.com/images/yahoo-icon-download/yahoo-icon-download-20.jpg" alt="yahoo"></a>
+            <td><a href="mailto:ashansalinda5@yahoo.com"><img class="fbuttons" src="./images/yahoo.png" alt="yahoo"></a>
             </td>
             <td><a class="links" href="mailto:ashansalinda5@yahoo.com">ashansalinda5@yahoo.com</a></td>
           </tr>
+
           <tr>
-            <td><a href="mailto:ashansalinda5@outlook.com"><img class="fbuttons"
-                  src="https://www.freepnglogos.com/uploads/logo-outlook-png/microsoft-outlook-macos-icon-12.png"
+            <td><a href="mailto:ashansalinda5@outlook.com"><img class="fbuttons" src="./images/outlook.png"
                   alt="outlook"></a></td>
             <td><a class="links" href="mailto:ashansalinda5@outlook.com">ashansalinda5@outlook.com</a></td>
           </tr>
+
           <tr>
-            <td><a href="https://www.facebook.com/ashan.salinda.58"><img class="fbuttons"
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/768px-Facebook_Logo_%282019%29.png"
+            <td><a href="https://www.facebook.com/ashan.salinda.58" target="_blank"><img class="fbuttons" src="./images/facebook.png"
                   alt="Facebook"></a></td>
-            <td><a class="links"
-                href="https://www.facebook.com/ashan.salinda.58">www.facebook.com/ashan.salinda.58</a>
+            <td><a class="links" href="https://www.facebook.com/ashan.salinda.58" target="_blank">www.facebook.com/ashan.salinda.58</a>
             </td>
           </tr>
+
           <tr>
-            <td><a href="https://www.linkedin.com/in/ashansalinda"><img class="fbuttons"
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LinkedIn_icon_circle.svg/2048px-LinkedIn_icon_circle.svg.png"
+            <td><a href="https://www.linkedin.com/in/ashansalinda" target="_blank"><img class="fbuttons" src="./images/linkedin.png"
                   alt="LinkedIn"></a></td>
-            <td><a class="links"
-                href="https://www.linkedin.com/in/ashansalinda">www.linkedin.com/in/ashansalinda</a>
+            <td><a class="links" href="https://www.linkedin.com/in/ashansalinda" target="_blank">www.linkedin.com/in/ashansalinda</a>
             </td>
           </tr>
+
           <tr>
-            <td><a href="https://www.twitter.com/ashansalinda5"><img class="fbuttons"
-                  src="https://seeklogo.com/images/T/twitter-icon-circle-blue-logo-0902F48837-seeklogo.com.png"
+            <td><a href="https://www.twitter.com/ashansalinda5" target="_blank"><img class="fbuttons" src="./images/twitter.png"
                   alt="Twitter"></a></td>
-            <td><a class="links" href="https://www.twitter.com/ashansalinda5">www.twitter.com/ashansalinda5</a>
-            </td>
+            <td><a class="links" href="https://www.twitter.com/ashansalinda5" target="_blank">www.twitter.com/ashansalinda5</a></td>
           </tr>
+
           <tr>
-            <td><a href="https://t.me/Ashansalinda"><img class="fbuttons"
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/240px-Telegram_logo.svg.png"
+            <td><a href="https://t.me/Ashansalinda" target="_blank"><img class="fbuttons" src="./images/telegram.png"
                   alt="Telegram"></a></td>
-            <td><a class="links" href="https://t.me/Ashansalinda">t.me/Ashansalinda</a></td>
+            <td><a class="links" href="https://t.me/Ashansalinda" target="_blank">t.me/Ashansalinda</a></td>
           </tr>
+
           <tr>
-            <td><a href="https://github.com/AshanSalinda"><img class="fbuttons"
-                  src="./images/github.png"
+            <td><a href="https://github.com/AshanSalinda" target="_blank"><img class="fbuttons" src="./images/github.png"
                   alt="GitHub"></a></td>
-            <td><a class="links" href="https://github.com/AshanSalinda">github.com/AshanSalinda</a>
-            </td>
+            <td><a class="links" href="https://github.com/AshanSalinda" target="_blank">github.com/AshanSalinda</a></td>
           </tr>
+
           <tr>
-            <td><a href="https://www.hackerrank.com/ashansalinda5"><img class="fbuttons"
-                  src="https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/160_Hackerrank_logo_logos-512.png"
+            <td><a href="https://www.hackerrank.com/ashansalinda5" target="_blank"><img class="fbuttons" src="./images/hackerrank.png"
                   alt="Hackerrant"></a></td>
-            <td><a class="links" href="https://www.hackerrank.com/ashansalinda5">www.hackerrank.com/ashansalinda5</a>
+            <td><a class="links" href="https://www.hackerrank.com/ashansalinda5" target="_blank">www.hackerrank.com/ashansalinda5</a>
             </td>
           </tr>
+
         </table><br><br><br>
       </div>
-      
+
       <div class="message_div">
         <form method="post" id="userForm">
           <label for="name">Name</label><br>
@@ -380,12 +398,13 @@
             required></textarea>
           <br>
           <input type="submit" value="Send Message" class="button"><br><br><br>
-          
+
         </form>
       </div>
     </div>
-    <p class="rights">2022 &#169; <a href="https://ashansalinda.github.io/official/">Ashan Salinda</a> , All Rights
+    <p class="rights">2022 &#169; <a href="https://ashansalinda.me/">Ashan Salinda</a> , All Rights
       Reserved</p>
   </footer>
 </body>
+
 </html>
